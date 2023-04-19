@@ -12,10 +12,13 @@ mod|log printf("<MISCMATH_OP>");
 "<"|"<="|"=="|"!="|">"|">=" printf("<RELATIONAL_OP>");
 [a-z|A-Z|_][0-9|a-z|A-Z|_]* printf("<IDENTIFIER>");
 "="|"'"|":"|";"|"("|")"|"["|"]" printf("<SYMBOL>");
+\n 
+<<EOF>> return 0;
 %%
 
 yywrap() {}
 
 int main() {
+    //yyin = fopen("file.txt", "r");
     yylex();
 }
